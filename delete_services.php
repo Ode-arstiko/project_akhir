@@ -3,7 +3,13 @@
     header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
     header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
-    $koneksi = new mysqli('localhost','root','','flutter_project_akhir');
+    $servername = "mysql.railway.internal";
+    $username = "root";
+    $password = "skUAaQacyIAsvrmDjOgBctsJtqPeVzBZ";
+    $dbname = "railway";
+    $port = 3306;
+    
+    $conn = new mysqli($servername, $username, $password, $dbname, $port);
 
     $id_note = $_POST['id_note'];
 
