@@ -4,10 +4,10 @@ header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 header("Content-Type: application/json; charset=UTF-8");
 
-$servername = "sql301.infinityfree.com";
-$username = "if0_39158864";
-$password = "nbVTynmrXl90RV";
-$dbname = "if0_39158864_flutter_project_akhir";
+$servername = "sql12.freesqldatabase.com";
+$username = "sql12783285";
+$password = "zfzP9skHps";
+$dbname = "sql12783285";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
