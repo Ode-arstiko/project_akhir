@@ -5,7 +5,13 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization");
 header("Content-Type: application/json; charset=UTF-8");
 
 // Koneksi ke database
-$koneksi = new mysqli('localhost', 'root', '', 'flutter_project_akhir');
+$servername = "mysql.railway.internal";
+$username = "root";
+$password = "skUAaQacyIAsvrmDjOgBctsJtqPeVzBZ";
+$dbname = "railway";
+$port = 3306;
+
+$conn = new mysqli($servername, $username, $password, $dbname, $port);
 
 if ($koneksi->connect_error) {
     die(json_encode(["pesan" => "Koneksi gagal: " . $koneksi->connect_error]));
