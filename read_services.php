@@ -4,13 +4,12 @@
     header("Access-Control-Allow-Headers: Content-Type, Authorization");
     header("Content-Type: application/json; charset=UTF-8");
 
-    $servername = "mysql.railway.internal";
-    $username = "root";
-    $password = "skUAaQacyIAsvrmDjOgBctsJtqPeVzBZ";
-    $dbname = "railway";
-    $port = 3306;
+    $servername = "sql301.infinityfree.com";
+    $username = "if0_39158864";
+    $password = "nbVTynmrXl90RV";
+    $dbname = "if0_39158864_flutter_project_akhir";
     
-    $conn = new mysqli($servername, $username, $password, $dbname, $port);
+    $conn = new mysqli($servername, $username, $password, $dbname);
 
     $query = mysqli_query($koneksi,'SELECT * FROM note');
     $data = mysqli_fetch_all ($query, MYSQLI_ASSOC);
