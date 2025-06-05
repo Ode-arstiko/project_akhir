@@ -8,8 +8,9 @@
     $username = "sql12783285";
     $password = "zfzP9skHps";
     $dbname = "sql12783285";
+    $port = 3306;
     
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = new mysqli($servername, $username, $password, $dbname, $port);
 
     $query = mysqli_query($koneksi,'SELECT * FROM note');
     $data = mysqli_fetch_all ($query, MYSQLI_ASSOC);
