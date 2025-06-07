@@ -1,10 +1,10 @@
 <?php
 // konfigurasi koneksi database
-$servername = "sql12.freesqldatabase.com";
-$username = "sql12783285";
-$password = "zfzP9skHps";
-$dbname = "sql12783285";
-$port = 3306;
+$servername = "jmwac.h.filess.io";
+$username = "FlutterProjectAkhir_sangstart";
+$password = "dc35776ed35a45747c0f3ce8dcd7ff7bdabff761";
+$dbname = "FlutterProjectAkhir_sangstart";
+$port = 3307;
 
 // buat koneksi
 $conn = new mysqli($servername, $username, $password, $dbname, $port);
