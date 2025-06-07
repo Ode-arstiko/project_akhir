@@ -4,12 +4,8 @@
     header("Access-Control-Allow-Headers: Content-Type, Authorization");
     header("Content-Type: application/json; charset=UTF-8");
 
-    $servername = "sql12.freesqldatabase.com";
-    $username = "sql12783285";
-    $password = "zfzP9skHps";
-    $dbname = "sql12783285";
-    $port = 3306;
-    
+    include 'koneksi.php';
+
     $conn = new mysqli($servername, $username, $password, $dbname, $port);
 
     $query = mysqli_query($conn,'SELECT * FROM note');
