@@ -4,16 +4,7 @@ header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 header("Content-Type: application/json; charset=UTF-8");
 
-$servername = "sql12.freesqldatabase.com";
-$username = "sql12783285";
-$password = "zfzP9skHps";
-$dbname = "sql12783285";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die(json_encode(["success" => false, "message" => "Koneksi database gagal: " . $conn->connect_error]));
-}
+include 'koneksi.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
@@ -52,7 +43,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 } else {
     echo json_encode(["success" => false, "message" => "Metode tidak di izinkan"]);
 }
-
-$conn->close();
-
 ?>
