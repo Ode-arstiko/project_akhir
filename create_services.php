@@ -5,16 +5,7 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization");
 header("Content-Type: application/json; charset=UTF-8");
 
 // Koneksi ke database
-$servername = "sql12.freesqldatabase.com";
-$username = "sql12783285";
-$password = "zfzP9skHps";
-$dbname = "sql12783285";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($koneksi->connect_error) {
-    die(json_encode(["pesan" => "Koneksi gagal: " . $koneksi->connect_error]));
-}
+include 'koneksi.php';
 
 // Ambil data dari request
 $judul_note = $_POST['judul_note'] ?? '';
@@ -26,7 +17,7 @@ if (empty($judul_note) || empty($deskripsi)) {
 }
 
 // Menggunakan Prepared Statement untuk mencegah SQL Injection
-$stmt = $koneksi->prepare("INSERT INTO note (judul_note, deskripsi) VALUES ( ?, ?)");
+$stmt = $conn->prepare("INSERT INTO note (judul_note, deskripsi) VALUES ( ?, ?)");
 $stmt->bind_param("ss",  $judul_note, $deskripsi);
 $data = $stmt->execute();
 
@@ -39,5 +30,4 @@ if ($data) {
 
 // Tutup statement dan koneksi
 $stmt->close();
-$koneksi->close();
 ?>
