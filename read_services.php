@@ -6,8 +6,6 @@
 
     include 'koneksi.php';
 
-    $conn = new mysqli($servername, $username, $password, $dbname, $port);
-
     $query = mysqli_query($conn,'SELECT * FROM note');
     $data = mysqli_fetch_all ($query, MYSQLI_ASSOC);
     echo json_encode($data);
