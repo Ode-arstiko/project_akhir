@@ -10,7 +10,7 @@ $id_note = $_POST['id_note'];
 $judul_note = $_POST['judul_note'];
 $deskripsi = $_POST['deskripsi'];
 
-$data = mysqli_query($koneksi, "update note set judul_note='$judul_note', deskripsi='$deskripsi' where id_note='$id_note'");
+$data = mysqli_query($conn, "UPDATE note SET judul_note='$judul_note', deskripsi='$deskripsi' WHERE id_note='$id_note'");
 if ($data){
     echo json_encode([
         'pesan'=>'Sukses Update'
