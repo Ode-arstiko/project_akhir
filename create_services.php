@@ -18,7 +18,7 @@ if (empty($judul_note) || empty($deskripsi)) {
 }
 
 // Menggunakan Prepared Statement untuk mencegah SQL Injection
-$stmt = $conn->prepare("INSERT INTO note (judul_note, deskripsi) VALUES ( ?, ?, ?)");
+$stmt = $conn->prepare("INSERT INTO note (judul_note, deskripsi, email) VALUES ( ?, ?, ?)");
 $stmt->bind_param("sss",  $judul_note, $deskripsi, $email);
 $data = $stmt->execute();
 
