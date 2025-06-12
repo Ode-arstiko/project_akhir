@@ -10,6 +10,7 @@ include 'koneksi.php';
 // Ambil data dari request
 $judul_note = $_POST['judul_note'] ?? '';
 $deskripsi = $_POST['deskripsi'] ?? '';
+$email = $_POST['email'] ?? '';
 
 // Validasi input (tidak boleh kosong)
 if (empty($judul_note) || empty($deskripsi)) {
@@ -17,8 +18,8 @@ if (empty($judul_note) || empty($deskripsi)) {
 }
 
 // Menggunakan Prepared Statement untuk mencegah SQL Injection
-$stmt = $conn->prepare("INSERT INTO note (judul_note, deskripsi) VALUES ( ?, ?)");
-$stmt->bind_param("ss",  $judul_note, $deskripsi);
+$stmt = $conn->prepare("INSERT INTO note (judul_note, deskripsi) VALUES ( ?, ?, ?)");
+$stmt->bind_param("sss",  $judul_note, $deskripsi, $email);
 $data = $stmt->execute();
 
 // Cek hasil query
