@@ -6,6 +6,10 @@
     include 'koneksi.php';
 
     session_start();
+    if (!isset($_SESSION['email'])) {
+        echo json_encode(["success" => false, "message" => "Session email belum tersedia"]);
+        exit;
+    }
     $email = $_SESSION['email'];
 
     $stmt = $conn->prepare("SELECT * FROM note WHERE email = ?");
