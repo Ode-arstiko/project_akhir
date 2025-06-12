@@ -12,7 +12,7 @@
     }
     $email = $_SESSION['email'];
 
-    $stmt = $conn->prepare("SELECT id_note, judul_note, deskripsi FROM note WHERE email = ?");
+    $stmt = $conn->prepare("SELECT * FROM note WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
