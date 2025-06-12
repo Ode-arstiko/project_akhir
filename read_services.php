@@ -5,12 +5,12 @@
     header("Content-Type: application/json; charset=UTF-8");
     include 'koneksi.php';
 
-    session_start();
-    if (!isset($_SESSION['email'])) {
-        echo json_encode(["success" => false, "message" => "Session email belum tersedia"]);
+    $email = $_POST['email'] ?? '';
+
+    if (!$email) {
+        echo json_encode(["success" => false, "message" => "Email tidak dikirim"]);
         exit;
     }
-    $email = $_SESSION['email'];
 
     $stmt = $conn->prepare("SELECT * FROM note WHERE email = ?");
     $stmt->bind_param("s", $email);
