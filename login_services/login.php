@@ -4,6 +4,8 @@ header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 header("Content-Type: application/json; charset=UTF-8");
 
+session_start();
+
 include '../koneksi.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -23,6 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
         if ($password == $user['password']) {
+            $_SESSION['email'] = $user['email'];
             echo json_encode([
                 "success" => true,
                 "message" => "Login berhasil",
